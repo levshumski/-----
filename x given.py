@@ -22,7 +22,7 @@ data2=[]
     data1.append(180*(m-2)/m)
     if msp[0]
     data2.append(i)'''
-# d = {'r': [2,3], 'theta': [0,1]}
-# df = pd.DataFrame(data=d)
-# fig = px.scatter_polar(df, 'r', 'theta', range_theta=[0,360.0], range_r=[0.0,4.0], start_angle=0, direction="counterclockwise")
-# fig.show()
+d = {'r': [2,3], 'theta': [0,1]}
+df = pd.DataFrame(data=d)
+fig = px.scatter_polar(df, 'r', 'theta', range_theta=[0,360.0], range_r=[0.0,4.0], start_angle=0, direction="counterclockwise")
+fig.show()

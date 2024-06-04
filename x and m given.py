@@ -3,6 +3,7 @@ import time
 import plotly.express as px
 import pandas as pd
 import numpy as np
+import plotly.graph_objects as go
 
 class vec:
     def __init__(self, m, a):
@@ -36,8 +37,6 @@ for m in range(1,x//3+3):
             if ((sqres-4+m)/(2*m-4)*10)%10==0:
                 sp.append(int((sqres-4+m)/(2*m-4)))
                 msp.append(m)
-m=msp[0]
-n=sp[0]
 print(msp)
 print(sp)
 def addv(vector):
@@ -46,11 +45,11 @@ def addv(vector):
 for p in range(len(msp)):
     res1=[]
     res2=[]
-    for i in range(int(n)):
+    for i in range(sp[p]):
         v = vec(i, - 180 * (msp[p] - 2) / msp[p] / 2)
         for j in range(1, msp[p]):
             z = - 180 * (msp[p] - 2) / msp[p] / 2 + (360/msp[p])*j
-            v1 = vec(1, z)
+            v1 = vec(1, z)                         
             addv(v)
             for _ in range(i):
                 v = sumv(v, v1)
@@ -61,10 +60,16 @@ for p in range(len(msp)):
     df = pd.DataFrame(data=d)
     # fig = dict({})
     # print(df, df.dtypes, df.shape)
-    fig = px.line_polar(df, 'r', 'theta',
-                       # line_dash_map='solid',
+    try:
+        fig = px.line_polar(df, 'r', 'theta',
+                            markers=True, 
+                            range_theta=[0,360.0], range_r=[0.0,max(res1)+0.5], 
+                            start_angle=0, line_shape='linear',direction="counterclockwise")
+    except:
+        fig = px.line_polar(df, 'r', 'theta',
                         markers=True, 
                         range_theta=[0,360.0], range_r=[0.0,max(res1)+0.5], 
-                        start_angle=0, direction="counterclockwise")
-    fig.update_traces(line=dict(color="Red", width=0.5), marker=dict(color="Blue", size=8))
+                        start_angle=0, line_shape='spline',direction="counterclockwise")
+    fig.update_traces(line=dict(color="Red", width=0.5), marker=dict(color="Blue", size=4))
+    fig.update_polars()
     fig.show()

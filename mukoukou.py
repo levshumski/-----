@@ -22,8 +22,8 @@ def sumv(a, b):
 def multv(a, k):
     return vec(a.m * k, a.a)
 
-m = 11
-n = 10
+m = 3
+n = 55
 
 res1 = []
 res2 = []
