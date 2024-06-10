@@ -56,18 +56,16 @@ for p in range(len(msp)):
                 addv(v)
     
     d = {'r': res1, 'theta': res2}
-    # print(d)
-    df = pd.DataFrame(data=d)
-    # fig = dict({})
-    # print(df, df.dtypes, df.shape)
+    df=pd.DataFrame(data=d)
     try:
-        fig = px.line_polar(df, 'r', 'theta',
+        fig=px.line_polar(df, 'r', 'theta',
                             markers=True, 
                             range_theta=[0,360.0], range_r=[0.0,max(res1)+0.5], 
                             start_angle=0, line_shape='linear',direction="counterclockwise",title='Введенное число является '+str(sp[p])+'-м '+str(msp[p])+' - угольным числом')
     except:
-        fig = px.scatter_polar(df, 'r', 'theta',
+        fig=px.scatter_polar(df, 'r', 'theta',
                         range_theta=[0,360.0], range_r=[0.0,max(res1)+0.5], 
                         start_angle=0,direction="counterclockwise",title='Введенное число является '+str(sp[p])+'-м '+str(msp[p])+' - угольным числом')
+
     fig.update_traces(line=dict(color="Red", width=0.5), marker=dict(color="Blue", size=4))
     fig.show()
