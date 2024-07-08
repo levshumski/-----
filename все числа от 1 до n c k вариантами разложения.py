@@ -10,7 +10,6 @@ for m in range(3,n//3+3):
         b+=1
 sp=list(set(sp))
 new=[]
-k=int(input())
 for i in sp:
     func=[]
     for m in range(3,int(i)//3+3):
@@ -20,6 +19,6 @@ for i in sp:
             if (sqres*10)%10==0:
                 if ((sqres-4+m)/(2*m-4)*10)%10==0:
                     func.append(m)
-    if len(func)==k:
+    if len(func)>=1:
         new.append(i)
 print(new)
