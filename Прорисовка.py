@@ -66,5 +66,5 @@ for p in range(len(msp)):
                         range_theta=[0,360.0], range_r=[0.0,max(res1)+0.5], 
                         start_angle=0,direction="counterclockwise",title='Число '+str(x)+' является '+str(sp[p])+'-м '+str(msp[p])+' - угольным числом')
 
-    fig.update_traces(line=dict(color="Red", width=0.5), marker=dict(color="Blue", size=2.5))
+    fig.update_traces(line=dict(color="Red", width=0.5), marker=dict(color="Blue", size=3.5))
     fig.show()
